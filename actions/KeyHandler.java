@@ -2,7 +2,7 @@ package actions;
 
 import game.Dir;
 import game.Snake;
-import gui.Draw;
+import gui.Gui;
 import gui.Gui;
 import gui.Gui;
 import gui.State;
@@ -50,18 +50,18 @@ public class KeyHandler implements KeyListener {
                 }
                 break;
             case KeyEvent.VK_SPACE:
-                if (Draw.st != State.GAME){
-                    Draw.st = State.GAME;
+                if (Gui.st != State.GAME){
+                    Gui.st = State.GAME;
                     System.out.println("space");
                 }
                 break;
             case KeyEvent.VK_ESCAPE:
-                if (Draw.st != State.GAME){
+                if (Gui.st != State.GAME){
                     System.exit(0);
                 }
                 break;
             case KeyEvent.VK_CONTROL:
-                if (Draw.st != State.GAME && Draw.st != State.OVER){
+                if (Gui.st != State.GAME && Gui.st != State.OVER){
                     if (GameClock.level == 200){
                         GameClock.level = 150;
                     } else if (GameClock.level == 150){
@@ -69,12 +69,15 @@ public class KeyHandler implements KeyListener {
                     } else if (GameClock.level == 100){
                         GameClock.level = 200;
                     }
-                } else if (Draw.st != State.GAME){
-                    Draw.st = State.HOME;
+                } else if (Gui.st != State.GAME){
+                    Gui.st = State.HOME;
                 }
                 break;
-            case KeyEvent.VK_0:
-                System.out.println(Draw.getSt());
+
+//                TO DO TESTÓW
+//            case KeyEvent.VK_0:
+//                System.out.println(Gui.getSt());
+//                System.out.println(Snake.head.getDir());
         }
     }
 
