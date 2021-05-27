@@ -1,7 +1,7 @@
 package gui;
 
 import clocks.GameClock;
-//import game.Score;
+import game.Score;
 import game.Snake;
 
 import javax.swing.*;
@@ -21,7 +21,7 @@ public class Draw extends JLabel {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, Gui.width, Gui.height);
 
-        if (getSt() == State.GAME) {
+        if (Gui.getSt() == State.GAME) {
             //Draw Snake Tails
             g.setColor(new Color(51, 204, 51));
             for (int i = 0; i < Snake.tails.size(); i++)
@@ -74,7 +74,7 @@ public class Draw extends JLabel {
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.BOLD, 20));
             g.drawString("Current score: " + Snake.score, 5, 25);
-        } else if (getSt() == State.OVER) {
+        } else if (Gui.getSt() == State.OVER) {
             //Draw GAME OVER screen
             g.setColor(Color.WHITE);
             g.setFont(new Font("Times New Roman", Font.BOLD, 30));
@@ -86,14 +86,14 @@ public class Draw extends JLabel {
             g.setFont(new Font("Times New Roman", Font.BOLD, 60));
             g.drawString("TOP 10", 60, 550);
             g.setFont(new Font("Times New Roman", Font.BOLD, 25));
-////            for (int i = 0; i <= Score.points.size() - 1; i++){
-////                if (i == 9){
-////                    g.drawString((i+1 + ". " + " Score: " + Score.points.get(i)), 86, 960);
-////                } else if (i < 9) {
-////                    g.drawString((i+1 + ". " + " Score: " + Score.points.get(i)), 100, 600 + i*40);
-////                }
-////            }
-        } else if (getSt() == State.HOME){
+            for (int i = 0; i <= Score.points.size() - 1; i++){
+                if (i == 9){
+                    g.drawString((i+1 + ". " + " Score: " + Score.points.get(i)), 86, 960);
+                } else if (i < 9) {
+                    g.drawString((i+1 + ". " + " Score: " + Score.points.get(i)), 100, 600 + i*40);
+                }
+            }
+        } else if (Gui.getSt() == State.HOME){
             //Draw HOME screen
             g.setColor(Color.WHITE);
             g.setFont(new Font("Times New Roman", Font.BOLD, 30));
@@ -119,16 +119,6 @@ public class Draw extends JLabel {
 
         repaint();
 
-    }
-
-    public static State getSt()
-    {
-        return st;
-    }
-
-    public void setSt(State st)
-    {
-        Draw.st = st;
     }
 
     public String lvl(){
