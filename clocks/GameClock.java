@@ -1,11 +1,10 @@
 package clocks;
 
 import actions.Collision;
-//import game.Score;
+import game.Score;
+import game.Dir;
 import game.Snake;
-import gui.Draw;
 import gui.Gui;
-import gui.State;
 
 import java.io.IOException;
 
@@ -16,41 +15,43 @@ public class GameClock extends Thread{
     public void run(){
         while(running){
             try {
-                if (Draw.getSt() == gui.State.HOME){
+                if (Gui.getSt() == gui.State.HOME){
                     Snake.tails.clear();
                     Snake.head.setX(7);
                     Snake.head.setY(7);
+                    Snake.head.setDir(Dir.RIGHT);
                     Snake.score = 0;
-                } else if (Draw.getSt() == gui.State.GAME){
+                } else if (Gui.getSt() == gui.State.GAME){
                     sleep(level);
                     Snake.move();
                     Snake.waitToMove = false;
                     Collision.collidePickUp();
                     if(Collision.collideSelf()){
-//                        Score.Write(Snake.score);
+                        Score.Write(Snake.score);
                         Snake.tails.clear();
                         Snake.head.setX(7);
                         Snake.head.setY(7);
                         Snake.score = 0;
-                        Draw.st = gui.State.OVER;
+                        Gui.st = gui.State.OVER;
                     }
                     if(Collision.collideWall()){
-//                        Score.Write(Snake.score);
+                        Score.Write(Snake.score);
                         Snake.tails.clear();
                         Snake.head.setX(7);
                         Snake.head.setY(7);
                         Snake.score = 0;
-                        Draw.st = gui.State.OVER;
+                        Gui.st = gui.State.OVER;
                     }
-                } else if (Draw.getSt() == gui.State.OVER){
+                } else if (Gui.getSt() == gui.State.OVER){
                     Snake.tails.clear();
                     Snake.head.setX(7);
                     Snake.head.setY(7);
+                    Snake.head.setDir(Dir.RIGHT);
                     Snake.score = 0;
                 }
 
 
-            } catch (InterruptedException e) {
+            } catch (InterruptedException | IOException e) {
                 e.printStackTrace();
             }
 
