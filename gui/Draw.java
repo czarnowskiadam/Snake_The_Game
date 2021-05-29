@@ -74,6 +74,16 @@ public class Draw extends JLabel {
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.BOLD, 20));
             g.drawString("Current score: " + Snake.score, 5, 25);
+
+            //Draw obstacle
+            g.setColor(Color.gray);
+            for (int i = 6; i < 36; i++){
+                for (int j = 19; j < 23; j++){
+                    g.fillRect(i * Gui.dimension + Gui.xoff, j * Gui.dimension + Gui.yoff, Gui.dimension, Gui.dimension);
+                }
+
+            }
+
         } else if (Gui.getSt() == State.OVER) {
             //Draw GAME OVER screen
             g.setColor(Color.WHITE);
