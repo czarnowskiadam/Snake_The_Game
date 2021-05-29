@@ -45,4 +45,8 @@ public class Collision {
         }
     }
 
+    public static boolean collideObstacle() {
+        return (Snake.head.getX() >= 6 && Snake.head.getX() < 36 && Snake.head.getY() >= 19 && Snake.head.getY() < 23);
+    }
+
 }
