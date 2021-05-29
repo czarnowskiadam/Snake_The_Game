@@ -9,11 +9,21 @@ public class PickUp5 {
         this.x = ThreadLocalRandom.current().nextInt(0,41);
         this.y = ThreadLocalRandom.current().nextInt(0,41);
 
+        if (x >= 6 && x <= 36 && y >= 19 && y <= 23){
+            this.x = ThreadLocalRandom.current().nextInt(0,41);
+            this.y = ThreadLocalRandom.current().nextInt(0,41);
+        }
+
     }
 
     public void reset(){
         this.x = ThreadLocalRandom.current().nextInt(0,41);
         this.y = ThreadLocalRandom.current().nextInt(0,41);
+
+        if (x >= 6 && x <= 36 && y >= 19 && y <= 23){
+            this.x = ThreadLocalRandom.current().nextInt(0,41);
+            this.y = ThreadLocalRandom.current().nextInt(0,41);
+        }
     }
 
     public int getX() {
