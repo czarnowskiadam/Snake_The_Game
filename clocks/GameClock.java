@@ -42,6 +42,14 @@ public class GameClock extends Thread{
                         Snake.score = 0;
                         Gui.st = gui.State.OVER;
                     }
+                    if(Collision.collideObstacle()){
+                        Score.Write(Snake.score);
+                        Snake.tails.clear();
+                        Snake.head.setX(7);
+                        Snake.head.setY(7);
+                        Snake.score = 0;
+                        Gui.st = gui.State.OVER;
+                    }
                 } else if (Gui.getSt() == gui.State.OVER){
                     Snake.tails.clear();
                     Snake.head.setX(7);
