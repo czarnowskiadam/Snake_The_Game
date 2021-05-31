@@ -1,6 +1,7 @@
 package gui;
 
 import clocks.GameClock;
+import game.Frog;
 import game.Score;
 import game.Snake;
 
@@ -11,6 +12,7 @@ public class Draw extends JLabel {
 
     public static State st = State.GAME;
     public static Point p;
+    public static Point f;
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -75,7 +77,7 @@ public class Draw extends JLabel {
             g.setFont(new Font("Arial", Font.BOLD, 20));
             g.drawString("Current score: " + Snake.score, 5, 25);
 
-            //Draw obstacle
+            //Draw Obstacle
             g.setColor(Color.gray);
             for (int i = 6; i < 36; i++){
                 for (int j = 19; j < 23; j++){
@@ -83,6 +85,11 @@ public class Draw extends JLabel {
                 }
 
             }
+
+            //Draw Frog
+            g.setColor(new Color(138,54,15));
+            f = Frog.ptc(Snake.frog.getX(), Snake.frog.getY());
+            g.fillRect(f.x, f.y, Gui.dimension, Gui.dimension);
 
         } else if (Gui.getSt() == State.OVER) {
             //Draw GAME OVER screen
