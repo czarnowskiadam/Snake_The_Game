@@ -6,6 +6,7 @@ import game.Dir;
 import game.Snake;
 import gui.Gui;
 
+import javax.sound.sampled.*;
 import java.io.IOException;
 
 public class GameClock extends Thread{
@@ -25,6 +26,7 @@ public class GameClock extends Thread{
                     sleep(level);
                     Snake.move();
                     Snake.waitToMove = false;
+                    Snake.frog.move();
                     Collision.collidePickUp();
                     if(Collision.collideSelf()){
                         Score.Write(Snake.score);
@@ -65,5 +67,6 @@ public class GameClock extends Thread{
 
         }
     }
+
 
 }
