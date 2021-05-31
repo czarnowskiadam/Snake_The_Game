@@ -25,7 +25,6 @@ public class Collision {
             Snake.pickup.reset();
             Snake.addTail();
             Snake.score +=1;
-
         } else if (Snake.head.getX() == Snake.pickup2.getX() && Snake.head.getY() == Snake.pickup2.getY()){
             Snake.pickup2.reset();
             Snake.addTail();
@@ -42,6 +41,12 @@ public class Collision {
             Snake.pickup5.reset();
             Snake.addTail();
             Snake.score +=1;
+        } else if (Snake.head.getX() == Snake.frog.getX() && Snake.head.getY() == Snake.frog.getY()){
+            Snake.frog.reset();
+            Snake.addTail();
+            Snake.addTail();
+            Snake.addTail();
+            Snake.score +=3;
         }
     }
 
