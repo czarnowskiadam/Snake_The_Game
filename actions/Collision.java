@@ -1,5 +1,6 @@
 package actions;
 
+import clocks.GameClock;
 import game.Snake;
 
 public class Collision {
@@ -25,28 +26,52 @@ public class Collision {
             Snake.pickup.reset();
             Snake.addTail();
             Snake.score +=1;
+            if (GameClock.growSoundCounter < 1){
+                GameClock.growSound.playSound(GameClock.filepathGrowSound);
+                GameClock.growSoundCounter++;
+            }
         } else if (Snake.head.getX() == Snake.pickup2.getX() && Snake.head.getY() == Snake.pickup2.getY()){
             Snake.pickup2.reset();
             Snake.addTail();
             Snake.score +=1;
+            if (GameClock.growSoundCounter < 1){
+                GameClock.growSound.playSound(GameClock.filepathGrowSound);
+                GameClock.growSoundCounter++;
+            }
         } else if (Snake.head.getX() == Snake.pickup3.getX() && Snake.head.getY() == Snake.pickup3.getY()){
             Snake.pickup3.reset();
             Snake.addTail();
             Snake.score +=1;
+            if (GameClock.growSoundCounter < 1){
+                GameClock.growSound.playSound(GameClock.filepathGrowSound);
+                GameClock.growSoundCounter++;
+            }
         } else if (Snake.head.getX() == Snake.pickup4.getX() && Snake.head.getY() == Snake.pickup4.getY()){
             Snake.pickup4.reset();
             Snake.addTail();
             Snake.score +=1;
+            if (GameClock.growSoundCounter < 1){
+                GameClock.growSound.playSound(GameClock.filepathGrowSound);
+                GameClock.growSoundCounter++;
+            }
         } else if (Snake.head.getX() == Snake.pickup5.getX() && Snake.head.getY() == Snake.pickup5.getY()){
             Snake.pickup5.reset();
             Snake.addTail();
             Snake.score +=1;
+            if (GameClock.growSoundCounter < 1){
+                GameClock.growSound.playSound(GameClock.filepathGrowSound);
+                GameClock.growSoundCounter++;
+            }
         } else if (Snake.head.getX() == Snake.frog.getX() && Snake.head.getY() == Snake.frog.getY()){
             Snake.frog.reset();
             Snake.addTail();
             Snake.addTail();
             Snake.addTail();
             Snake.score +=3;
+            if (GameClock.hugeGrowSoundCounter < 1){
+                GameClock.hugeGrowSound.playSound(GameClock.filepathHugeGrowSound);
+                GameClock.hugeGrowSoundCounter++;
+            }
         }
     }
 
